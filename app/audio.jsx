@@ -24,15 +24,39 @@ export default function AudioComponent() {
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
 
+  if (!browserSupportsSpeechRecognition) {
+    console.log("Browser does not support Speech Recognition");
+  }
+
   return (
     <div>
-      <div className="bg-gray-100 p-4 flex justify-center items-center h-screen">
-        <div className="bg-white p-8 rounded-lg shadow-md w-80">
-          <img
+      <div className="bg-white flex justify-center items-center h-screen">
+        <div className="bg-white w-4/5">
+          {/* <img
             src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="idk - Highvyn, Taylor Shin"
-            className="w-64 h-64 mx-auto rounded-lg mb-4 shadow-lg shadow-teal-50"
-          />
+            className="w-12 h-12 mx-auto rounded-lg mb-4 shadow-lg shadow-teal-50"
+          /> */}
+          <div className="flex w-full justify-center align-baseline">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="#111"
+                fillRule="evenodd"
+                d="M12 3.25a.75.75 0 01.75.75v16a.75.75 0 01-1.5 0V4a.75.75 0 01.75-.75zm-8 7a.75.75 0 01.75.75v2a.75.75 0 01-1.5 0v-2a.75.75 0 01.75-.75zm16 0a.75.75 0 01.75.75v2a.75.75 0 01-1.5 0v-2a.75.75 0 01.75-.75z"
+                clipRule="evenodd"
+              ></path>
+              <path
+                fill="#AAA"
+                d="M16.75 7a.75.75 0 00-1.5 0v10a.75.75 0 001.5 0V7zm-8 0a.75.75 0 00-1.5 0v10a.75.75 0 001.5 0V7z"
+              ></path>
+            </svg>
+          </div>
 
           <h2 className="text-xl font-semibold text-center">
             Speech Recognition
@@ -132,7 +156,7 @@ export default function AudioComponent() {
 
           {/* Time Information */}
           <div className="flex justify-between mt-2 text-sm text-gray-600">
-            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl  sm:px-6 lg:px-8">
               <p>{transcript}</p>
             </div>
           </div>
