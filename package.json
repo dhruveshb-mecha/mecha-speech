@@ -15,7 +15,8 @@
     "react": "^18",
     "react-audio-voice-recorder": "^2.2.0",
     "react-dom": "^18",
-    "react-speech-recognition": "^3.10.0"
+    "react-speech-recognition": "^3.10.0",
+    "react-text-to-speech": "^0.14.5"
   },
   "devDependencies": {
     "eslint": "^8",
