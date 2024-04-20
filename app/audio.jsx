@@ -2,13 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
-import { WebVoiceProcessor } from "@picovoice/web-voice-processor";
-// import { AudioRecorder } from "react-audio-voice-recorder";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 
-import { useSpeech } from "react-text-to-speech";
+
 
 export default function AudioComponent() {
   const {
@@ -17,16 +15,18 @@ export default function AudioComponent() {
     resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
-  const [message, setMessage] = useState("");
 
-  const {
-    Text, // Component that returns the modified text property
-    speechStatus, // String that stores current speech status
-    isInQueue, // Boolean that stores whether a speech utterance is either being spoken or present in queue
-    start, // Function to start the speech or put it in queue
-    pause, // Function to pause the speech
-    stop, // Function to stop the speech or remove it from queue
-  } = useSpeech({ text: transcript });
+
+
+  const handlePlay = () => {
+    // Check if responsiveVoice is loaded
+    if (responsiveVoice) {
+      console.log("ResponsiveVoice loaded");
+      responsiveVoice.speak(transcript);
+    } else {
+      console.error("ResponsiveVoice not loaded");
+    }
+  };
 
   if (!browserSupportsSpeechRecognition) {
     console.log("Browser does not support Speech Recognition");
@@ -157,7 +157,7 @@ export default function AudioComponent() {
             </button>
             <button
               className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none"
-              onClick={start}
+              onClick={handlePlay}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

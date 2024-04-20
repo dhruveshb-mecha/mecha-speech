@@ -9,14 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@picovoice/web-voice-processor": "^4.0.9",
     "@tauri-apps/api": "^1.5.3",
     "next": "14.2.2",
     "react": "^18",
-    "react-audio-voice-recorder": "^2.2.0",
     "react-dom": "^18",
-    "react-speech-recognition": "^3.10.0",
-    "react-text-to-speech": "^0.14.5"
+    "react-speech-recognition": "^3.10.0"
   },
   "devDependencies": {
     "eslint": "^8",
